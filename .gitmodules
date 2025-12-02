@@ -1,0 +1,3 @@
+[submodule "hskylib"]
+	path = hskylib
+	url = git@github.com:NEURoboticsClub/hskylib.git
