@@ -25,7 +25,7 @@ DrivebaseConfig hsky1Drivebase = {
 	{-16, 17, -14, 13}, // right
 	pros::E_MOTOR_BRAKE_COAST,
 	pros::E_MOTOR_GEAR_600,
-	ARCADE,
+	DriveStyle::ARCADE,
 	0.75,
 	hsky1AutonConstants
 };
@@ -121,7 +121,7 @@ DrivebaseConfig hsky2Drivebase = {
 	{4, 5, -2},
 	pros::E_MOTOR_BRAKE_COAST,
 	pros::E_MOTOR_GEAR_600,
-	ARCADE,
+	DriveStyle::ARCADE,
 	0.25,
 	hsky2AutonConstants
 };
