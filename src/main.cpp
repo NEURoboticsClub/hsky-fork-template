@@ -1,6 +1,10 @@
 #include "main.h"
 
 #include "robot_config.hpp"
+#include <hskylib/utils/commands/base_commands.h>
+#include <hskylib/utils/commands/command_runner.h>
+#include <hskylib/utils/commands/drive_commands.h>
+#include <queue>
 
 /**
  * Runs initialization code. This occurs as soon as the program is started.
@@ -39,7 +43,10 @@ void competition_initialize() {}
  * will be stopped. Re-enabling the robot will restart the task, not re-start it
  * from where it left off.
  */
-void autonomous() {}
+void autonomous() {
+	CommandRunner commandRunner(commandQueue);
+	commandRunner.run();
+}
 
 /**
  * Runs the operator control code. This function will be started in its own task
@@ -59,8 +66,9 @@ void opcontrol() {
 
 	controller.initialize();
 
-	while (true) {
 
+	while (true) {
+		driveBase.arcadeDrive(controller.AxisLeftY.position(), controller.AxisRightX.position());
 		pros::delay(20);
 	}
 }
