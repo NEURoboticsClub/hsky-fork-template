@@ -2,12 +2,12 @@
 #define HSKYLIB_H
 
 // Subsystems
-#include "hskylib/subsystems/odometry/odometry.h"
 #include "hskylib/subsystems/odometry/odometry_drivebase.h"
 #include "hskylib/subsystems/odometry/odometry_perpendicular_imu.h"
 #include "hskylib/subsystems/odometry/odometry_three_wheel.h"
-#include "hskylib/subsystems/odometry/odometry_two_wheel.h"
 #include "hskylib/subsystems/odometry/odometry_two_wheel_imu.h"
+#include "hskylib/subsystems/odometry/odometry_two_wheel.h"
+#include "hskylib/subsystems/odometry/odometry.h"
 #include "hskylib/subsystems/pneumatics.h"
 #include "hskylib/subsystems/tank_drive.h"
 #include "hskylib/subsystems/transport.h"
