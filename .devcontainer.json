@@ -1,0 +1,14 @@
+{
+    "build": {
+        "dockerfile": "./docker/Dockerfile"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "eamodio.gitlens",
+                "llvm-vs-code-extensions.vscode-clangd",
+                "sigbots.pros"
+            ]
+        }
+    }
+}
