@@ -3,9 +3,15 @@ FROM alpine:3.23
 WORKDIR /vexu
 
 RUN apk --update add --no-cache \
+    g++-arm-none-eabi \
     gcc-arm-none-eabi \
-    git python3=~3.12 \
-    py3-pip
-RUN python3 -m pip install --break-system-packages --user pros-cli
+    git \
+    make \
+    pipx
+RUN pipx install --global \
+    pros-cli \
+    --preinstall setuptools==80
 
-ENV PATH="/root/.local/bin:${PATH}"
+ENV PATH="/arm-none-eabi-toolchain/bin:/root/.local/bin:${PATH}"
+
+CMD ["/bin/sh"]

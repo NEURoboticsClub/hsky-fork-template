@@ -1,0 +1,9 @@
+services:
+  vexu:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: vexu-hsky
+    volumes:
+      - .:/vexu
+    command: ["sleep", "infinity"]
