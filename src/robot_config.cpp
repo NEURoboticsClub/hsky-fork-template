@@ -5,11 +5,14 @@
 #include <hskylib/utils/utils.h>
 
 #include "pros/adi.hpp"
+#include "pros/motor_group.hpp"
 #include "pros/motors.h"
 
 #define ROBOT_1
 
 HskyController controller(pros::E_CONTROLLER_MASTER);
+pros::MotorGroup leftMotorGroup({10, -9, 8, -7, 6});
+pros::MotorGroup rightMotorGroup({-1, 2, -3, 4, 5});
 
 //---------------------------------------------------
 // ##################### Robot 1 #####################
