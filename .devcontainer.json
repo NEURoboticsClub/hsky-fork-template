@@ -1,14 +1,21 @@
 {
-    "build": {
-        "dockerfile": "./docker/Dockerfile"
-    },
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "eamodio.gitlens",
-                "llvm-vs-code-extensions.vscode-clangd",
-                "sigbots.pros"
-            ]
-        }
+  "name": "VEXU HSKY",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "vexu",
+  "workspaceFolder": "/vexu",
+  "shutdownAction": "stopCompose",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "editor.formatOnSave": true,
+        "files.autoSave": "afterDelay",
+        "files.autoSaveDelay": 1000,
+        "clangd.path": "/usr/bin/clangd"
+      },
+      "extensions": [
+        "eamodio.gitlens",
+        "llvm-vs-code-extensions.vscode-clangd"
+      ]
     }
+  }
 }

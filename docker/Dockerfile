@@ -8,14 +8,19 @@ RUN wget -O - "https://gitlab.arm.com/api/v4/projects/tooling%2Fgnu-toolchains-f
 WORKDIR /vexu
 
 RUN apk --update add --no-cache \
+    clang21 \
+    clang21-extra-tools \
     gcompat \
     git \
+    libc6-compat \
     make \
-    pipx
+    pipx \
+    uv
 RUN pipx install --global \
     pros-cli \
     --preinstall setuptools==80
 
-ENV PATH="/arm-none-eabi-toolchain/bin:/root/.local/bin:${PATH}"
+ENV PATH="/opt/pipx/venvs/pros-cli/bin:/arm-none-eabi-toolchain/bin:/root/.local/bin:${PATH}"
+ENV PS1="(DOCKER) \[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;35m\]\w\[\033[00m\]\$ "
 
 CMD ["/bin/sh"]
