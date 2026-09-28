@@ -58,9 +58,15 @@ void opcontrol() {
 	opcontrolInit();
 
 	controller.initialize();
-
 	while (true) {
+		controller.ButtonA.onPressed([]() {leftMotorGroup.move_voltage(startVoltage);});
+		pros::delay(20);
+		controller.ButtonA.onReleased([]() {leftMotorGroup.move_voltage(stopVoltage);});
+		pros::delay(20);
 
+		controller.ButtonB.onPressed([]() {leftMotorGroup.move_voltage(startVoltage);});
+		pros::delay(20);
+		controller.ButtonB.onReleased([]() {leftMotorGroup.move_voltage(stopVoltage);});
 		pros::delay(20);
 	}
 }
