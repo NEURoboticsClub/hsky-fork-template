@@ -55,12 +55,32 @@ void autonomous() {}
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-	opcontrolInit();
+  opcontrolInit();
 
-	controller.initialize();
+  controller.initialize();
+  pros::MotorGroup leftDrive({1, 2, 3});
+  pros::MotorGroup rightDrive({-4, -5, -6});
 
-	while (true) {
+  pros::Controller master(pros::E_CONTROLLER_MASTER);
 
-		pros::delay(20);
-	}
+  while (true) {
+    // Left side: L1 forward, L2 backward
+    if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
+      leftDrive.move(100);
+    } else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
+      leftDrive.move(-100);
+    } else {
+      leftDrive.move(0);
+    }
+
+    if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
+      rightDrive.move(100);
+    } else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
+      rightDrive.move(-100);
+    } else {
+      rightDrive.move(0);
+    }
+
+    pros::delay(20);
+  }
 }
