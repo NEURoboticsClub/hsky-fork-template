@@ -1,10 +1,14 @@
 FROM alpine:3.23
 
+WORKDIR /arm-none-eabi-toolchain
+
+RUN wget -O - "https://gitlab.arm.com/api/v4/projects/tooling%2Fgnu-toolchains-for-arm/packages/generic/gnu-toolchain/14.3.rel1/arm-gnu-toolchain-14.3.rel1-x86_64-arm-none-eabi.tar.xz" \
+    | tar Jxf - -C . --strip-components=1
+
 WORKDIR /vexu
 
 RUN apk --update add --no-cache \
-    g++-arm-none-eabi \
-    gcc-arm-none-eabi \
+    gcompat \
     git \
     make \
     pipx
